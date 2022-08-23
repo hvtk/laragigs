@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,15 +59,15 @@ Route::get('/search', function (Request $request) {
     ]);
 });*/
 
-// All Listings
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings Test from Model',
-        'listings' => Listing::all()
-    ]);
-});
+// All Listings without controller
+//Route::get('/', function () {
+//    return view('listings', [
+//       'heading' => 'Latest Listings Test from Model',
+//        'listings' => Listing::all()
+//    ]);
+//});
 
-//Single Listing first way
+//Single Listing first way without controller
 //Route::get('/listings/{id}', function($id) {
 //    $listing = Listing::find($id);
 //
@@ -79,9 +80,16 @@ Route::get('/', function () {
 //    }    
 //});
 
-//Single Listing cleaner way
-Route::get('/listings/{listing}', function(Listing $listing) {
-    return view('listing', [
-        'listing' => $listing
-    ]);   
-});
+//Single Listing cleaner way without controller
+//Route::get('/listings/{listing}', function(Listing $listing) {
+//    return view('listing', [
+//        'listing' => $listing
+//    ]);   
+//});
+
+// All Listings
+Route::get('/', [ListingController::class, 'index']);
+
+// Single listing
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
