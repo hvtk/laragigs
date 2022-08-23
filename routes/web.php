@@ -99,6 +99,9 @@ Route::get('/search', function (Request $request) {
 // All Listings
 Route::get('/', [ListingController::class, 'index']);
 
+// Show create Form
+Route::get('/listings/create', [ListingController::class, 'create']);
+
 // Single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
