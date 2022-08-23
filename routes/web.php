@@ -87,9 +87,20 @@ Route::get('/search', function (Request $request) {
 //    ]);   
 //});
 
+// Common Recource Routes:
+// index - Show all listings
+// show - Show single listing
+// create - Show form to create new listing
+// store - Store new listing
+// edit - Show form to edit listing
+// update - Update listing
+// destroy - Delete listing
+
 // All Listings
 Route::get('/', [ListingController::class, 'index']);
 
 // Single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+
 
