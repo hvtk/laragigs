@@ -8,10 +8,10 @@ use Illuminate\Validation\Rule;
 
 class ListingController extends Controller
 {
-    // Show all listings
+    // Show all listings with number of listings per page (paginate)
     public function index() {
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(2)
         ]);
     }
 

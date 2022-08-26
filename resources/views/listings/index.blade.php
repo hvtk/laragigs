@@ -19,4 +19,9 @@
 
 </div>
 
+<!-- gives the links of the pages in combination with paginate -->
+<div class="mt-6 p-4">
+    {{ $listings->links() }}
+</div>
+
 </x-layout>
